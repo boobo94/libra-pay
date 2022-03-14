@@ -1,5 +1,9 @@
 This library allows to connect with librapay using nodejs.
 
+<a href="https://www.librapay.ro" title="Plati online" target="_blank"><img src="https://www.librapay.ro/images/icon_securitate_LibraPay_600x60px.jpg" alt="Icon securitate LibraPay" border="0" /></a>
+
+Official documentation can be found [here](https://www.librapay.ro/documente/LibraPay_implementation_documentation_EN.pdf)
+
 ## Initial setup
 
 
