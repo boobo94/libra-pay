@@ -57,7 +57,7 @@ export default Router()
     multer().none(),
     amqpMiddleware,
     (req, res, next) => {
-      const response = new LibraPay().handleIPN(req.body)
+      const response = new libra.handleIPN(req.body)
       if (response === '1') {
         console.log('paid with success')
       }
@@ -69,7 +69,7 @@ export default Router()
   .get('/card',
     (req, res, next) => {
       const orderId = new Date().getTime().toString()
-      const response = new LibraPay().generateForm('1.00', orderId, 'comanda online de test', {
+      const response = libra.generateForm('1.00', orderId, 'comanda online de test', {
         ProductsData: [],
         UserData: {
           Email: 'testuser@exemplu.com',
@@ -88,7 +88,6 @@ export default Router()
 
   .post('/capture',
     (req, res, next) => {
-      const libra = new LibraPay()
       const previousOrderId = '1644588481302'
       const res = await libra.captureTransaction('1.00', previousOrderId)
 
@@ -98,7 +97,6 @@ export default Router()
 
   .post('/capture/recurring',
     (req, res, next) => {
-      const libra = new LibraPay()
       const previousOrderId = '1644588481302'
       const res = await libra.captureRecurringTransaction('100.00', previousOrderId, 'recurring payment')
 
@@ -107,8 +105,6 @@ export default Router()
 
   .post('/cancel/recurring',
     (req, res, next) => {
-      const libra = new LibraPay()
-
       const previousOrderId = '1644588481302'
       const res = await libra.cancelRecurringTransaction('100.00', previousOrderId)
 
@@ -117,7 +113,6 @@ export default Router()
 
   .post('/refund',
     (req, res, next) => {
-      const libra = new LibraPay()
       const previousOrderId = '1644588481302'
       const res = await libra.refundTransaction('1.00', previousOrderId, true)
 
