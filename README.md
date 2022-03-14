@@ -37,6 +37,7 @@ import { BASE_URL_PRODUCTION, BASE_URL_SANDBOX } from 'libra-pay'
 ## Usage express router example
 
 ```js
+import { Router } from 'express'
 import multer from 'multer'
 import { LibraPay } from 'libra-pay'
 
